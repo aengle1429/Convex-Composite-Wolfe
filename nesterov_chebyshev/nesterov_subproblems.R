@@ -92,16 +92,16 @@ cvx.comp.bt <- function(x, d, c1) {
 cat("\f") # clear console
 # set.seed(10)
 set.seed(8)
-n <- 10 # num vars
-N <- 10000 # num iters
-xk <- rnorm(n, 1, 0.1)
+n <- 8 # num vars
+N <- 462 # num iters
+xk <- rnorm(n, 1, 1)
 cat("Initializing at xk = ", xk)
-p <- 5 # number of funvals to consider
-funvals <- rep(0, N + p)
+# p <- 5 # number of funvals to consider
+# funvals <- rep(0, N + p)
 xks <- matrix(0, nrow = n, ncol = N)
-
 f0 <- nesterov.cheby(xk)[[1]]
-funvals[1:p] <- f0
+cat("Function value is ", f0, "\n")
+# funvals[1:p] <- f0
 for(i in 1:N) {
   cat("iteration is ", i, "\n")
 
@@ -110,7 +110,7 @@ for(i in 1:N) {
   
   cat("Delta is ", nesterov.cheby.Delta(xk, dk), "\n")
   
-  fmax = max(funvals[seq(i, i + p - 1)])
+  # fmax = max(funvals[seq(i, i + p - 1)])
   
   # step <- nm.cvx.comp.wolfe(xk, dk, 0.000001, 0.00008, fmax)
   

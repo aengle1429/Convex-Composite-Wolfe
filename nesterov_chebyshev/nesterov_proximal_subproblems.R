@@ -71,19 +71,18 @@ nesterov.prox.subprob.momentum <- function(x, v, t, alpha) { # no need for v whe
 }
 
 cat("\f")
-n <- 10
-# set.seed(8)
+n <- 8
+set.seed(8)
 eta <- 0.5
 alpha <- 0.5
-xk <- rnorm(n, 1, 10)
-vk <- rnorm(n, 1, 30)
-# xk <- rep(1, n)
-# xk <- c(1.000012352,1.000049409,1.00019764,1.000790636,1.003163796,1.012675201,1.051022127,1.209295021,1.924788896,6.409624589)
+xk <- rnorm(n, 1, 1)
+vk <- rnorm(n, 1, 1)
 tk <- 1
-N <- 5000000
+N <- 462
 funvals <- rep(0, N)
 xks <- matrix(0, nrow = n, ncol = N)
 proxgrads <- rep(0, N)
+cat("Initializing at xk = ", xk)
 for(k in 1:N) {
   cat("iteration is ", k, "\n")
   ak <- 2 / (k + 1)

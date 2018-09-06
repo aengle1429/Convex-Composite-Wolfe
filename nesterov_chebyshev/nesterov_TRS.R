@@ -1,8 +1,10 @@
 library(Matrix)
 library(Rcplex)
 cat("\f") # clear console
-n <- 10
+n <- 8
+set.seed(8)
 xk <- rnorm(n, 1, 1)
+cat("Initializing at xk = ", xk)
 Hk <- diag(n)
 deltak <- 10
 gam1 <- 0.5
@@ -49,7 +51,7 @@ nesterov.jim.TRS <- function(x, H, delta) {
 
 cat("Initializing at xk = ", xk)
 
-num_iter <- 3000
+num_iter <- 10000
 
 for(i in 1:num_iter) {
   cat("iteration is ", i, "\n")

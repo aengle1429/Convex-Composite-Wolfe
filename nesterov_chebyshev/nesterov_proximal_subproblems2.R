@@ -82,15 +82,14 @@ nesterov.prox.subprob <- function(eta, alpha, t, x) {
 }
 
 cat("\f")
-n <- 4
-# set.seed(8)
+n <- 8
+set.seed(8)
 eta <- 0.5
 alpha <- 0.5
-xk <- rnorm(n, 0, 150)
-# xk <- c(0.4680186805, -0.5619170299, -0.3684985032, -0.7284177063, 0.0611847097)
-# xk <- c(-0.9841175122, 0.9369745743, 0.7558427059, 0.142596392, -0.959332538, 0.8406378179, 0.4133438813, -0.6582936735, -0.1332988838, -0.96446285)
+xk <- rnorm(n, 1, 5)
 tk <- 1
-for(k in 1:30000) {
+N <- 1000
+for(k in 1:N) {
   # cat("iteration is ", k, "\n")
   # get this from solving the subproblem based on y
   bt.data <- nesterov.prox.TRS(eta, alpha, tk, xk)
